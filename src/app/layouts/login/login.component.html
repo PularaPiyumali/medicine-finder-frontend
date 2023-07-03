@@ -8,7 +8,7 @@
                         <p class="card-category">Login to your account from here</p>
                     </div>
                     <div class="card-body">
-                        <form #loginform="ngForm" (ngSubmit)="onSubmit(loginform)" >
+                        <form >
                             <div class="row">
                                 <div class="col-md-11">
                                   <mat-form-field class="example-full-width">
@@ -84,7 +84,7 @@
   
                                 </div>
                             </div> -->
-                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
+                            <button mat-raised-button class="btn btn-danger pull-right" (click)="login()">Update Profile</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>

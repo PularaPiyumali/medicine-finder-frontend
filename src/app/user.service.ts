@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse} from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { LoginData } from "./layouts/register/register.component";
+import { JwtResponse, UserData } from "./layouts/login/login.component";
 
 
 @Injectable({providedIn: 'root'})
@@ -17,23 +18,23 @@ export class UserService {
         });
     }  
 
-    // login(email: string, password: string) {
-    //     const loginData : UserData = {email: email, password: password
-    //     };
+    login(email: string, password: string) {
+        const loginData : UserData = {email: email, password: password
+        };
       
-    //     this.http.post<JwtResponse>('http://localhost:8080/api/v1/authenticate', loginData)
-    //       .subscribe((response: JwtResponse) => {
-    //         const token = response.token;
-    //         if (token) {
-    //           localStorage.setItem('token', token);
-    //           //this.router.navigate(['/home']);
-    //           console.log(token)
-    //         } else {
-    //           // Handle login error
-    //         }
-    //       }, 
-    //       (error: HttpErrorResponse) => {
-    //         console.error(error);
-    //       });
-    //     }
+        this.http.post<JwtResponse>('http://localhost:8080/api/v1/authenticate', loginData)
+          .subscribe((response: JwtResponse) => {
+            const token = response.token;
+            if (token) {
+              localStorage.setItem('token', token);
+              //this.router.navigate(['/home']);
+              console.log(token)
+            } else {
+              // Handle login error
+            }
+          }, 
+          (error: HttpErrorResponse) => {
+            console.error(error);
+          });
+        }
 }
