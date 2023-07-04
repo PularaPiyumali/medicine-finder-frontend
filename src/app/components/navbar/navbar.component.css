@@ -1,0 +1,11 @@
+.navbar-brand{
+    font-family: "Times New Roman", Times, serif;
+}
+
+.navbarDropdownMenuLink{
+    background-color: blue;
+}
+
+a.dropdown-menu {
+    background-color: blue;
+}

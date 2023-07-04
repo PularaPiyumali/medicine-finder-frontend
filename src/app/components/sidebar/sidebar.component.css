@@ -2,3 +2,8 @@ li.active > a  {
     background-color: #321fdb;
     box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgb(54 79 244 / 40%);
 }
+
+.simple-text{
+    font-family: "Times New Roman", Times, serif;
+}
+

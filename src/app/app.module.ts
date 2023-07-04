@@ -12,6 +12,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RegisterComponent } from './layouts/register/register.component';
 import {MatIconModule} from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table';
+import { CustomerLayoutComponent } from './layouts/customer-layout/customer-layout.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   imports: [
@@ -24,13 +27,16 @@ import {MatIconModule} from '@angular/material/icon';
     AppRoutingModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule,
+    MatExpansionModule
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
     RegisterComponent,
+    CustomerLayoutComponent
 
   ],
   providers: [],

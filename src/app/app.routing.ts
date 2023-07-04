@@ -6,15 +6,31 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './layouts/login/login.component';
 import { RegisterComponent } from './layouts/register/register.component';
+import { CustomerLayoutComponent } from './layouts/customer-layout/customer-layout.component';
 
 const routes: Routes =[
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
-  }, {
-    path: '',
+  }, 
+  {
+    path: 'admin',
     component: AdminLayoutComponent,
+    data: {
+      title: 'dashboard'
+    },
+    children: [{
+      path: '',
+      loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
+    }]
+  },
+  {
+    path: 'customer',
+    component: CustomerLayoutComponent,
+    data: {
+      title: 'dashboard'
+    },
     children: [{
       path: '',
       loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)

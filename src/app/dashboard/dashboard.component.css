@@ -1,0 +1,32 @@
+.text-overlay {
+    position: absolute;
+    top: 42%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 30px;
+    text-align: left;
+  }
+
+  .text-on-the-picture{
+    position: relative;
+    font-size: 16px;
+    color: white;
+    white-space: nowrap;
+    text-align: justify;
+    
+  }
+
+  .card .card-header-success:not(.card-header-icon):not(.card-header-text), .card.bg-success, .card.card-rotate.bg-success .front, .card.card-rotate.bg-success .back {
+    background: linear-gradient(60deg, #321fdb, #2145f3);
+}
+
+.card .card-header-warning:not(.card-header-icon):not(.card-header-text), .card.bg-warning, .card.card-rotate.bg-warning .front, .card.card-rotate.bg-warning .back {
+    background: linear-gradient(60deg, #321fdb, #2145f3);
+}
+
+.card .card-header-danger:not(.card-header-icon):not(.card-header-text), .card.bg-danger, .card.card-rotate.bg-danger .front, .card.card-rotate.bg-danger .back {
+    background: linear-gradient(60deg, #321fdb, #2145f3);
+}
+
+
