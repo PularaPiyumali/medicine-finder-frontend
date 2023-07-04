@@ -18,6 +18,7 @@ export class UserService {
         });
     }  
 
+
     login(email: string, password: string) {
         const loginData : UserData = {email: email, password: password
         };

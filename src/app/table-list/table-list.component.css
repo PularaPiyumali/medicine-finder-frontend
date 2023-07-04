@@ -1,0 +1,55 @@
+.card-header {
+    background-color: #321fdb;
+}
+
+.card-header-danger {
+    .card-icon,
+    .card-text {
+      background: #321fdb;
+      
+    }
+  
+    &:not(.card-header-icon):not(.card-header-text),
+    &.bg-danger,
+    &.card-rotate.bg-danger .front,
+    &.card-rotate.bg-danger .back {
+      background: #321fdb;
+      
+    }
+  }
+
+  .card-header-danger .card-icon,
+    .card-header-danger:not(.card-header-icon):not(.card-header-text),
+    .card-header-danger .card-text{
+        box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgb(54 79 244 / 40%);
+    }
+
+    table, th, td, tr {
+        border: 1px solid;
+        border-collapse: separate;
+        border-color: transparent;
+        
+    }
+    
+    
+    .demo-table {
+        width: 100%;
+    
+      }
+      
+      .demo-button-container {
+        
+        padding-bottom: 33px;
+        text-align: center;
+        margin-top: 6%;
+      }
+      
+      .demo-button {
+        margin-left: 20px;
+      }
+
+      .mat-raised-button {
+        background-color: blue;
+        box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+        color: white;
+    }

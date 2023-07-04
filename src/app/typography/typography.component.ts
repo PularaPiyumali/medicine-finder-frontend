@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TypographyComponent implements OnInit {
 
+  medicinename: string = '';
+  medicinedescription: string = '';
+  medicineprice: number = 0;
+  medicinequantity: number = 0;
+
   constructor() { }
 
   ngOnInit() {
+
   }
+
+  add(){}
+
+  update(){}
 
 }
