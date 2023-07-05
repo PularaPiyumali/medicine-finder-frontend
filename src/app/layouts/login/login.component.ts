@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'app/user.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
 
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService, private router: Router) { }
 
 
 //   onSubmit(loginform: NgForm) {
@@ -20,6 +21,10 @@ export class LoginComponent {
 //     console.log(loginform.valid);  // false
 
 // }
+
+now(){
+  this.router.navigate(['/register']);
+}
 
 login() {
   this.userService.login(this.email, this.password);
@@ -33,4 +38,5 @@ export interface UserData {
 
 export interface JwtResponse {
   token: string;
+  role: string;
 }

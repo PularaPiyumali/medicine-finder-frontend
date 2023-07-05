@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from 'app/user.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -16,13 +17,15 @@ export class RegisterComponent {
   rpassword: string = '';
   cpassword: string = '';
 
-  constructor(public userService: UserService){} 
+  constructor(public userService: UserService, private router: Router){} 
   
   register() {
     this.userService.register(this.fname, this.lname, this.mobileNo, this.remail, this.rpassword, this.cpassword);
+    this.router.navigate(['/login']); 
   }
 
 
+  
 //   onSubmit(registerUser: NgForm) {
 //     console.log(registerUser.value);  // { first: '', last: '' }
 //     console.log(registerUser.valid);  // false

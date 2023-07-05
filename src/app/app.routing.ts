@@ -7,6 +7,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { LoginComponent } from './layouts/login/login.component';
 import { RegisterComponent } from './layouts/register/register.component';
 import { CustomerLayoutComponent } from './layouts/customer-layout/customer-layout.component';
+import { PharmacyDetailsComponent } from './pharmacy-details/pharmacy-details.component';
 
 const routes: Routes =[
   {
@@ -48,6 +49,13 @@ const routes: Routes =[
     component: RegisterComponent,
     data: {
       title: 'Register Page'
+    }
+  },
+  {
+    path: 'pharmacy-details',
+    component: PharmacyDetailsComponent,
+    data: {
+      title: 'Pharmacy Details Page'
     }
   }
 ];

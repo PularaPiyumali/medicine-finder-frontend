@@ -15,6 +15,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import { CustomerLayoutComponent } from './layouts/customer-layout/customer-layout.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { SidebarCustomerComponent } from './sidebar-customer/sidebar-customer.component';
+import { PharmacyDetailsComponent } from './pharmacy-details/pharmacy-details.component';
 
 @NgModule({
   imports: [
@@ -36,7 +38,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
     AdminLayoutComponent,
     LoginComponent,
     RegisterComponent,
-    CustomerLayoutComponent
+    CustomerLayoutComponent,
+    SidebarCustomerComponent,
+    PharmacyDetailsComponent
 
   ],
   providers: [],
