@@ -98,26 +98,79 @@
                             <tbody>
                               <tr *ngFor="let item of dataSource.data">
                                 <td>{{item.medicineId}}</td>
-                                <td>{{item.medicineName}}</td>
-                                <td>{{item.medicineDescription}}</td>
-                                <td>{{item.medicinePrice}}</td>
-                                <td>{{item.medicineQuantity}}</td>
-                                <td>{{item.genericName}}</td>
-                                <td><button
-                                  mat-raised-button
-                                  class="button-edit"
-                                  (click)="element.isEdit = !element.isEdit"
-                                >
-                                  Edit
-                                </button></td>
-                                <td><button
+                                <td>
+                                  <div *ngIf="item.isEdit">
+                                    <input matInput name="medicine_name" [(ngModel)]="item.medicineName" class="form-control"/>
+                                  </div>
+                                  <div *ngIf="!item.isEdit">
+                                  {{item.medicineName}}
+                                </div>
+                                </td>
+                                <td>
+                                  <div *ngIf="item.isEdit">
+                                    <input matInput name="medicine_description" [(ngModel)]="item.medicineDescription" class="form-control"/>
+                                  </div>
+                                  <div *ngIf="!item.isEdit">
+                                  {{item.medicineDescription}}
+                                </div>
+                                </td>
+                                <td>
+                                  <div *ngIf="item.isEdit">
+                                    <input matInput name="medicine_price" [(ngModel)]="item.medicinePrice" class="form-control"/>
+                                  </div>
+                                  <div *ngIf="!item.isEdit">
+                                  {{item.medicinePrice}}
+                                  </div>
+                                </td>
+                                <td>
+                                  <div *ngIf="item.isEdit">
+                                    <input matInput name="medicine_quantity" [(ngModel)]="item.medicineQuantity" class="form-control"/>
+                                  </div>
+                                  <div *ngIf="!item.isEdit">
+                                  {{item.medicineQuantity}}
+                                </div>
+                                </td>
+                                <td>
+                                  <div *ngIf="item.isEdit">
+                                    <input matInput name="generic_name" [(ngModel)]="item.genericName" class="form-control"/>
+                                  </div>
+                                  <div *ngIf="!item.isEdit">
+                                  {{item.genericName}}
+                                  </div>
+                                </td>
+                                <td>
+                                  <button
                                   mat-button
                                   class="button-remove"
                                   (click)="removeRow(item.medicineId)"
                                 >
                                   <mat-icon matSuffix>delete</mat-icon>
                                 </button></td>
-                              </tr>
+                                <td>
+                                  <div *ngIf="!item.isEdit">
+                                  <button
+                                  mat-raised-button
+                                  class="button-edit"
+                                  (click)="onEdit(item)" 
+                                >
+                                  Edit
+                                </button>
+                                </div>
+                                <div *ngIf="item.isEdit">
+                                  <button
+                                  mat-raised-button
+                                  class="button-edit" (click)="editRow(item)">
+                                  Save
+                                </button>
+                                <br>
+                                <button
+                                  mat-raised-button
+                                  class="button-done" (click)="item.isEdit = false">
+                                  Done
+                                </button>
+                                </div>
+                              </td>
+                            </tr>
                             </tbody>
                           </table>
                         </div>

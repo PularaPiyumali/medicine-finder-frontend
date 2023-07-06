@@ -28,8 +28,8 @@ export class TableListComponent implements OnInit {
   public dataSource: MatTableDataSource<MedicineData>;
   dataToDisplay = this.medicine;
   isAdding: boolean = false; // Flag to track whether the add form is visible
-  filterValue: string = ''; 
-  editingRowIndex: number = -1;
+  isEdit: boolean = false;
+  filterValue: string = '';
 
 
 
@@ -87,21 +87,25 @@ export class TableListComponent implements OnInit {
   }
   
 
-
-
-//  onAddEmloyee(addForm: NgForm) {
-//     console.log(addForm.value);  // { first: '', last: '' }
-//     console.log(addForm.valid);  // false
-
-// }
-  
-
-
-
   toggleAddForm() {
     this.isAdding = !this.isAdding;
   }
 
+  onEdit(item:any){
+    this.dataToDisplay.forEach(element => {
+      element.isEdit = false;
+    });
+    item.isEdit = true;
+  }
+
+
+  editRow(row: MedicineData) {
+    this.medicineService.updateMedicine(row).subscribe(response => {
+      console.log(response)
+    });
+  }
+
+  
 
   public getMedicine(): void {
     this.medicineService.getMedicine().subscribe(
