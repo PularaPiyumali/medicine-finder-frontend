@@ -17,6 +17,7 @@ import { CustomerLayoutComponent } from './layouts/customer-layout/customer-layo
 import {MatExpansionModule} from '@angular/material/expansion';
 import { SidebarCustomerComponent } from './sidebar-customer/sidebar-customer.component';
 import { PharmacyDetailsComponent } from './pharmacy-details/pharmacy-details.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { PharmacyDetailsComponent } from './pharmacy-details/pharmacy-details.co
     MatInputModule,
     MatIconModule,
     MatTableModule,
-    MatExpansionModule
+    MatExpansionModule,
+    Ng2SearchPipeModule
   ],
   declarations: [
     AppComponent,
@@ -40,8 +42,8 @@ import { PharmacyDetailsComponent } from './pharmacy-details/pharmacy-details.co
     RegisterComponent,
     CustomerLayoutComponent,
     SidebarCustomerComponent,
-    PharmacyDetailsComponent
-
+    PharmacyDetailsComponent,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

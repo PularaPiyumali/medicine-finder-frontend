@@ -2,96 +2,47 @@
   <div class="container-fluid">
     <div class="card">
         <div class="card-header card-header-danger">
-            <h4 class="card-title">Add Medicine</h4>
-            <p class="card-category">You can add medicine from here</p>
+            <h4 class="card-title">Search Medicine</h4>
+            <p class="card-category">You can search medicine from here</p>
         </div>
         <div class="card-body">
-            <div >
-                <div class="row">
-                    <div class="col-md-11">
-                      <mat-form-field class="example-full-width">
-                          <input matInput name="medicinename" placeholder="Medicine Name"  [(ngModel)]="medicinename" >
-                        </mat-form-field>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-11">
-                      <mat-form-field class="example-full-width">
-                        <input matInput  name="medicinedescription" placeholder="Medicine Description"  [(ngModel)]="medicinedescription" >
-                      </mat-form-field>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-md-11">
-                      <mat-form-field class="example-full-width">
-                        <input matInput  name="medicineprice" placeholder="Medicine Price (Rs.)"  [(ngModel)]="medicineprice">
-                      </mat-form-field>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-md-11">
-                      <mat-form-field class="example-full-width">
-                        <input matInput  name="medicinequantity" placeholder="Medicine Quantity"  [(ngModel)]="medicinequantity" >
-                      </mat-form-field>
-                    </div>
-                </div>
-                <button mat-raised-button class="btn btn-danger pull-right" (click)="add()">Add</button>
-                <div class="clearfix"></div>
-            </div>
+          <div class="navbar-form">
+            <form class="medicine-search" >
+             <div>
+               <input type="text" name="search" [(ngModel)]="searchText" value="" placeholder="Search Medicine">
+               <button mat-raised-button type="submit">
+                   <i class="material-icons">search</i>
+                </button>
+             </div>
+            </form>
+            <div class="table-responsive">
+              <table class="table">
+                 <thead class="text-primary">
+                    <tr>
+                       <th style="color: black;">Id</th>
+                       <th style="color: black;">Name</th>
+                       <th style="text-align: center;color: black;">Description</th>
+                       <th style="color: black;">Price (Rs.)</th>
+                       <th style="color: black;">Quantity</th>
+                       <th style="color: black;">Generic Name</th>
+                       <th style="color: black;"></th>
+                       <th style="color: black;"></th>
+                    </tr>
+                 </thead>
+                 <tbody>
+                    <tr *ngFor="let item of dataSource.data | searchFilter:searchText">
+                       <td>{{item.medicineId}}</td>
+                       <td>{{item.medicineName}}</td>
+                       <td>{{item.medicineDescription}}</td>
+                       <td>{{item.medicinePrice}}</td>
+                       <td>{{item.medicineQuantity}}</td>
+                       <td>{{item.genericName}}</td>
+                    </tr>
+                 </tbody>
+              </table>
+           </div>
+          </div>
         </div>
     </div>
-    <br>
-    <div class="card">
-        <div class="card-header card-header-danger">
-            <h4 class="card-title">Update Medicine</h4>
-            <p class="card-category">You can update medicine from here</p>
-        </div>
-        <div class="card-body">
-            <div >
-                <div class="row">
-                    <div class="col-md-11">
-                      <mat-form-field class="example-full-width">
-                          <input matInput name="medicinename" placeholder="Medicine Name"  [(ngModel)]="medicinename" >
-                        </mat-form-field>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-11">
-                      <mat-form-field class="example-full-width">
-                        <input matInput  name="medicinedescription" placeholder="Medicine Description"  [(ngModel)]="medicinedescription" >
-                      </mat-form-field>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-md-11">
-                      <mat-form-field class="example-full-width">
-                        <input matInput  name="medicineprice" placeholder="Medicine Price (Rs.)"  [(ngModel)]="medicineprice">
-                      </mat-form-field>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-md-11">
-                      <mat-form-field class="example-full-width">
-                        <input matInput  name="medicinequantity" placeholder="Medicine Quantity"  [(ngModel)]="medicinequantity" >
-                      </mat-form-field>
-                    </div>
-                </div>
-                <button mat-raised-button class="btn btn-danger pull-right" (click)="update()">Update</button>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class="card">
-        <div class="card-header card-header-danger">
-            <h4 class="card-title">Delete Medicine</h4>
-            <p class="card-category">You can delete medicine from here</p>
-        </div>
-        <div class="card-body">
-        </div>
-    </div>
+  </div>
 </div>

@@ -54,10 +54,10 @@ export const AdminLayoutRoutes: Routes = [
     // }
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
-    { path: 'table-list',     component: TableListComponent },
-    { path: 'typography',     component: TypographyComponent },
-    { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent },
+    { path: 'medicine-counter',     component: TableListComponent },
+    { path: 'medicine-finder',     component: TypographyComponent },
+    { path: 'find-pharmacy',          component: IconsComponent },
+    { path: 'add-pharmacy',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
-    { path: 'upgrade',        component: UpgradeComponent },
+    { path: 'settings',        component: UpgradeComponent },
 ];

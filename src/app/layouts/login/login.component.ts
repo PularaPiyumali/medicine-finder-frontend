@@ -15,13 +15,6 @@ export class LoginComponent {
 
   constructor(public userService: UserService, private router: Router) { }
 
-
-//   onSubmit(loginform: NgForm) {
-//     console.log(loginform.value);  // { first: '', last: '' }
-//     console.log(loginform.valid);  // false
-
-// }
-
 now(){
   this.router.navigate(['/register']);
 }

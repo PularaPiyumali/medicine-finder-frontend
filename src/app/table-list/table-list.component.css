@@ -1,76 +1,57 @@
 .card-header {
-    background-color: #321fdb;
-}
-
-.card-header-danger {
-    .card-icon,
-    .card-text {
-      background: #321fdb;
-      
-    }
-  
-    &:not(.card-header-icon):not(.card-header-text),
-    &.bg-danger,
-    &.card-rotate.bg-danger .front,
-    &.card-rotate.bg-danger .back {
-      background: #321fdb;
-      
-    }
+  background-color: #321fdb;
   }
-
+  .card-header-danger {
+  .card-icon,
+  .card-text {
+  background: #321fdb;
+  }
+  &:not(.card-header-icon):not(.card-header-text),
+  &.bg-danger,
+  &.card-rotate.bg-danger .front,
+  &.card-rotate.bg-danger .back {
+  background: #321fdb;
+  }
+  }
   .card-header-danger .card-icon,
-    .card-header-danger:not(.card-header-icon):not(.card-header-text),
-    .card-header-danger .card-text{
-        box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgb(54 79 244 / 40%);
-    }
-
-    table, th, td, tr {
-        border: 1px solid;
-        border-collapse: separate;
-        border-color: transparent;
-        
-    }
-    
-    
-    .demo-table {
-        width: 100%;
-    
-      }
-      
-      .demo-button-container {
-        
-        padding-bottom: 33px;
-        text-align: center;
-        
-      }
-      
-      .demo-button {
-        margin-left: 830px;
-      }
-
-      .mat-raised-button {
-        background-color: blue;
-        box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-        color: white;
-    }
-
-    .mat-raised-button.btn.btn-danger, .mat-raised-button.btn:not([class*=mat-elevation-z]).btn-danger, .btn.btn-danger {
-      color: #fff;
-      background-color: #321fdb;
-      border-color: #321fdb;
-      box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgb(54 79 244 / 40%);
-  }  
-
-  .medicine-add-form {
-    width: 50%;
-    margin-left: 30%;
+  .card-header-danger:not(.card-header-icon):not(.card-header-text),
+  .card-header-danger .card-text{
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgb(54 79 244 / 40%);
   }
-
+  table, th, td, tr {
+  border: 1px solid;
+  border-collapse: separate;
+  border-color: transparent;
+  }
+  .demo-table {
+  width: 100%;
+  }
+  .demo-button-container {
+  padding-bottom: 33px;
+  text-align: center;
+  }
+  .demo-button {
+  margin-left: 830px;
+  }
+  .mat-raised-button {
+  background-color: blue;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  color: white;
+  }
+  .mat-raised-button.btn.btn-danger, .mat-raised-button.btn:not([class*=mat-elevation-z]).btn-danger, .btn.btn-danger {
+  color: #fff;
+  background-color: #321fdb;
+  border-color: #321fdb;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgb(54 79 244 / 40%);
+  }  
+  .medicine-add-form {
+  width: 50%;
+  margin-left: 30%;
+  }
   .card .card-body {
-    padding: 1.9375rem 20px;
-    position: relative;
-}
-
-.button-done {
+  padding: 1.9375rem 20px;
+  position: relative;
+  }
+  .button-done {
   margin-top: 10px;
-}
+  }

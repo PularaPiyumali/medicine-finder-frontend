@@ -23,15 +23,6 @@ export class RegisterComponent {
     this.userService.register(this.fname, this.lname, this.mobileNo, this.remail, this.rpassword, this.cpassword);
     this.router.navigate(['/login']); 
   }
-
-
-  
-//   onSubmit(registerUser: NgForm) {
-//     console.log(registerUser.value);  // { first: '', last: '' }
-//     console.log(registerUser.valid);  // false
-
-// }
-
 }
 
 export interface LoginData {

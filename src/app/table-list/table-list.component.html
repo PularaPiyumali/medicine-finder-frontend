@@ -1,182 +1,183 @@
 <div class="main-content">
   <div class="container-fluid">
-    <div class="row">
+     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header card-header-danger">
-                    <h4 class="card-title ">Pharmacy Registration</h4>
-                    <p class="card-category"> Add pharmacy details here</p>
-                </div>
-                <div class="card-body">
-                    <form #addForm="ngForm" (ngSubmit)="onAddPharmacy(addForm)">
-                    <div>
-                        <div class="row">
-                            <div class="col-md-12">
-                              <mat-form-field class="example-full-width">
-                                  <input matInput name="pharmacy_name" placeholder="Name"  [(ngModel)]="pharmacy_name" >
-                                  <mat-icon matSuffix>edit</mat-icon>
-                                </mat-form-field>
-                                <button mat-raised-button class="demo-button pull-right" type="submit" >Submit</button>
-                            </div>
-                        </div>
+           <div class="card">
+              <div class="card-header card-header-danger">
+                 <h4 class="card-title ">Pharmacy Registration</h4>
+                 <p class="card-category"> Add pharmacy details here</p>
+              </div>
+              <div class="card-body">
+                 <form #addForm="ngForm" (ngSubmit)="onAddPharmacy(addForm)">
+                 <div>
+                    <div class="row">
+                       <div class="col-md-12">
+                          <mat-form-field class="example-full-width">
+                             <input matInput name="pharmacy_name" placeholder="Name"  [(ngModel)]="pharmacy_name" >
+                             <mat-icon matSuffix>edit</mat-icon>
+                          </mat-form-field>
+                          <button mat-raised-button class="demo-button pull-right" type="submit" >Submit</button>
+                       </div>
                     </div>
-                </form>
-                </div>
-            </div>
+                 </div>
+                 </form>
+              </div>
+           </div>
         </div>
-   </div>
-      <div class="row">
-          <div class="col-md-12">
-              <div class="card">
-                  <div class="card-header card-header-danger">
-                      <h4 class="card-title ">Medicine Counter</h4>
-                      <p class="card-category"> You can add, delete, view, update medicine from here</p>
-                  </div>
-                  <div class="card-body">
-                    <div class="demo-button-container">
-                            <button mat-raised-button (click)="toggleAddForm()" class="demo-button">
-                              Add +
-                            </button>
-                        </div> 
-                            <div *ngIf="isAdding">
-                                        <form #addForm="ngForm" (ngSubmit)="onAddMedicine(addForm)" class="medicine-add-form">
-                                            <div>
-                                              <div class="row">
-                                                <div class="col-md-11">
-                                                  <mat-form-field class="example-full-width">
-                                                    <input matInput name="medicine_name" placeholder="Medicine Name" [(ngModel)]="medicine_name">
-                                                  </mat-form-field>
-                                                </div>
-                                              </div>
-                                              <div class="row">
-                                                <div class="col-md-11">
-                                                  <mat-form-field class="example-full-width">
-                                                    <input matInput name="medicine_description" placeholder="Medicine Description" [(ngModel)]="medicine_description">
-                                                  </mat-form-field>
-                                                </div>
-                                              </div>
-                                              <div class="row">
-                                                <div class="col-md-11">
-                                                  <mat-form-field class="example-full-width">
-                                                    <input matInput name="medicine_price" placeholder="Medicine Price (Rs.)" [(ngModel)]="medicine_price">
-                                                  </mat-form-field>
-                                                </div>
-                                              </div>
-                                              <div class="row">
-                                                <div class="col-md-11">
-                                                  <mat-form-field class="example-full-width">
-                                                    <input matInput name="medicine_quantity" placeholder="Medicine Quantity" [(ngModel)]="medicine_quantity">
-                                                  </mat-form-field>
-                                                </div>
-                                              </div>
-                                              <div class="row">
-                                                <div class="col-md-11">
-                                                  <mat-form-field class="example-full-width">
-                                                    <input matInput name="generic_name" placeholder="Generic Name" [(ngModel)]="generic_name">
-                                                  </mat-form-field>
-                                                </div>
-                                              </div>
-                                              <button mat-raised-button class="demo-button pull-right" type="submit" >Submit</button>
-                                              <div class="clearfix"></div>
-                                            </div>
-                                          </form>
-                                        </div>
-                      <div class="table-responsive">
-                                        <table class="table">
-                            <thead class="text-primary">
-                              <tr>
-                                <th style="color: black;">Id</th>
-                                <th style="color: black;">Name</th>
-                                <th style="text-align: center;color: black;">Description</th>
-                                <th style="color: black;">Price (Rs.)</th>
-                                <th style="color: black;">Quantity</th>
-                                <th style="color: black;">Generic Name</th>
-                                <th style="color: black;"></th>
-                                <th style="color: black;"></th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr *ngFor="let item of dataSource.data">
-                                <td>{{item.medicineId}}</td>
-                                <td>
-                                  <div *ngIf="item.isEdit">
-                                    <input matInput name="medicine_name" [(ngModel)]="item.medicineName" class="form-control"/>
-                                  </div>
-                                  <div *ngIf="!item.isEdit">
-                                  {{item.medicineName}}
+     </div>
+     <div class="row">
+        <div class="col-md-12">
+           <div class="card">
+              <div class="card-header card-header-danger">
+                 <h4 class="card-title ">Medicine Counter</h4>
+                 <p class="card-category"> You can add, delete, view, update medicine from here</p>
+              </div>
+              <div class="card-body">
+                 <div class="demo-button-container">
+                    <button mat-raised-button (click)="toggleAddForm()" class="demo-button">
+                    Add +
+                    </button>
+                 </div>
+                 <div *ngIf="isAdding">
+                    <form #addForm="ngForm" (ngSubmit)="onAddMedicine(addForm)" class="medicine-add-form">
+                    <div>
+                       <div class="row">
+                          <div class="col-md-11">
+                             <mat-form-field class="example-full-width">
+                                <input matInput name="medicine_name" placeholder="Medicine Name" [(ngModel)]="medicine_name">
+                             </mat-form-field>
+                          </div>
+                       </div>
+                       <div class="row">
+                          <div class="col-md-11">
+                             <mat-form-field class="example-full-width">
+                                <input matInput name="medicine_description" placeholder="Medicine Description" [(ngModel)]="medicine_description">
+                             </mat-form-field>
+                          </div>
+                       </div>
+                       <div class="row">
+                          <div class="col-md-11">
+                             <mat-form-field class="example-full-width">
+                                <input matInput name="medicine_price" placeholder="Medicine Price (Rs.)" [(ngModel)]="medicine_price">
+                             </mat-form-field>
+                          </div>
+                       </div>
+                       <div class="row">
+                          <div class="col-md-11">
+                             <mat-form-field class="example-full-width">
+                                <input matInput name="medicine_quantity" placeholder="Medicine Quantity" [(ngModel)]="medicine_quantity">
+                             </mat-form-field>
+                          </div>
+                       </div>
+                       <div class="row">
+                          <div class="col-md-11">
+                             <mat-form-field class="example-full-width">
+                                <input matInput name="generic_name" placeholder="Generic Name" [(ngModel)]="generic_name">
+                             </mat-form-field>
+                          </div>
+                       </div>
+                       <button mat-raised-button class="demo-button pull-right" type="submit" >Submit</button>
+                       <div class="clearfix"></div>
+                    </div>
+                    </form>
+                 </div>
+                 <div class="table-responsive">
+                    <table class="table">
+                       <thead class="text-primary">
+                          <tr>
+                             <th style="color: black;">Id</th>
+                             <th style="color: black;">Name</th>
+                             <th style="text-align: center;color: black;">Description</th>
+                             <th style="color: black;">Price (Rs.)</th>
+                             <th style="color: black;">Quantity</th>
+                             <th style="color: black;">Generic Name</th>
+                             <th style="color: black;"></th>
+                             <th style="color: black;"></th>
+                          </tr>
+                       </thead>
+                       <tbody>
+                          <tr *ngFor="let item of dataSource.data">
+                             <td>{{item.medicineId}}</td>
+                             <td>
+                                <div *ngIf="item.isEdit">
+                                   <input matInput name="medicine_name" [(ngModel)]="item.medicineName" class="form-control"/>
                                 </div>
-                                </td>
-                                <td>
-                                  <div *ngIf="item.isEdit">
-                                    <input matInput name="medicine_description" [(ngModel)]="item.medicineDescription" class="form-control"/>
-                                  </div>
-                                  <div *ngIf="!item.isEdit">
-                                  {{item.medicineDescription}}
+                                <div *ngIf="!item.isEdit">
+                                   {{item.medicineName}}
                                 </div>
-                                </td>
-                                <td>
-                                  <div *ngIf="item.isEdit">
-                                    <input matInput name="medicine_price" [(ngModel)]="item.medicinePrice" class="form-control"/>
-                                  </div>
-                                  <div *ngIf="!item.isEdit">
-                                  {{item.medicinePrice}}
-                                  </div>
-                                </td>
-                                <td>
-                                  <div *ngIf="item.isEdit">
-                                    <input matInput name="medicine_quantity" [(ngModel)]="item.medicineQuantity" class="form-control"/>
-                                  </div>
-                                  <div *ngIf="!item.isEdit">
-                                  {{item.medicineQuantity}}
+                             </td>
+                             <td>
+                                <div *ngIf="item.isEdit">
+                                   <input matInput name="medicine_description" [(ngModel)]="item.medicineDescription" class="form-control"/>
                                 </div>
-                                </td>
-                                <td>
-                                  <div *ngIf="item.isEdit">
-                                    <input matInput name="generic_name" [(ngModel)]="item.genericName" class="form-control"/>
-                                  </div>
-                                  <div *ngIf="!item.isEdit">
-                                  {{item.genericName}}
-                                  </div>
-                                </td>
-                                <td>
-                                  <button
-                                  mat-button
-                                  class="button-remove"
-                                  (click)="removeRow(item.medicineId)"
-                                >
-                                  <mat-icon matSuffix>delete</mat-icon>
-                                </button></td>
-                                <td>
-                                  <div *ngIf="!item.isEdit">
-                                  <button
-                                  mat-raised-button
-                                  class="button-edit"
-                                  (click)="onEdit(item)" 
-                                >
-                                  Edit
+                                <div *ngIf="!item.isEdit">
+                                   {{item.medicineDescription}}
+                                </div>
+                             </td>
+                             <td>
+                                <div *ngIf="item.isEdit">
+                                   <input matInput name="medicine_price" [(ngModel)]="item.medicinePrice" class="form-control"/>
+                                </div>
+                                <div *ngIf="!item.isEdit">
+                                   {{item.medicinePrice}}
+                                </div>
+                             </td>
+                             <td>
+                                <div *ngIf="item.isEdit">
+                                   <input matInput name="medicine_quantity" [(ngModel)]="item.medicineQuantity" class="form-control"/>
+                                </div>
+                                <div *ngIf="!item.isEdit">
+                                   {{item.medicineQuantity}}
+                                </div>
+                             </td>
+                             <td>
+                                <div *ngIf="item.isEdit">
+                                   <input matInput name="generic_name" [(ngModel)]="item.genericName" class="form-control"/>
+                                </div>
+                                <div *ngIf="!item.isEdit">
+                                   {{item.genericName}}
+                                </div>
+                             </td>
+                             <td>
+                                <button
+                                   mat-button
+                                   class="button-remove"
+                                   (click)="removeRow(item.medicineId)"
+                                   >
+                                   <mat-icon matSuffix>delete</mat-icon>
                                 </button>
+                             </td>
+                             <td>
+                                <div *ngIf="!item.isEdit">
+                                   <button
+                                      mat-raised-button
+                                      class="button-edit"
+                                      (click)="onEdit(item)" 
+                                      >
+                                   Edit
+                                   </button>
                                 </div>
                                 <div *ngIf="item.isEdit">
-                                  <button
-                                  mat-raised-button
-                                  class="button-edit" (click)="editRow(item)">
-                                  Save
-                                </button>
-                                <br>
-                                <button
-                                  mat-raised-button
-                                  class="button-done" (click)="item.isEdit = false">
-                                  Done
-                                </button>
+                                   <button
+                                      mat-raised-button
+                                      class="button-edit" (click)="editRow(item)">
+                                   Save
+                                   </button>
+                                   <br>
+                                   <button
+                                      mat-raised-button
+                                      class="button-done" (click)="item.isEdit = false">
+                                   Done
+                                   </button>
                                 </div>
-                              </td>
-                            </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                  </div>
+                             </td>
+                          </tr>
+                       </tbody>
+                    </table>
+                 </div>
               </div>
-          </div>
+           </div>
+        </div>
      </div>
   </div>
 </div>

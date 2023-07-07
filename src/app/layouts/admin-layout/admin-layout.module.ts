@@ -18,6 +18,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
+import { SearchFilterPipe } from 'app/search.filter.pipe';
+
 
 
 @NgModule({
@@ -39,6 +41,7 @@ import {MatIconModule} from '@angular/material/icon';
     UserProfileComponent,
     TableListComponent,
     TypographyComponent,
+    SearchFilterPipe,
     IconsComponent,
     MapsComponent,
     NotificationsComponent,

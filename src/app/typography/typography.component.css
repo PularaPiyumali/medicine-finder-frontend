@@ -30,3 +30,9 @@
         border-color: #321fdb;
         box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgb(54 79 244 / 40%);
     }  
+
+  .navbar-form {
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+  }  
