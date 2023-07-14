@@ -51,13 +51,6 @@ const routes: Routes =[
       title: 'Register Page'
     }
   },
-  {
-    path: 'pharmacy-details',
-    component: PharmacyDetailsComponent,
-    data: {
-      title: 'Pharmacy Details Page'
-    }
-  }
 ];
 
 @NgModule({

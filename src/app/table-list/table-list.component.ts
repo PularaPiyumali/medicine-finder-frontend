@@ -103,6 +103,7 @@ export class TableListComponent implements OnInit {
     this.medicineService.updateMedicine(row).subscribe(response => {
       console.log(response)
     });
+    
   }
 
   

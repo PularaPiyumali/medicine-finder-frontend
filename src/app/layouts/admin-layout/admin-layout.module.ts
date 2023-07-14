@@ -19,6 +19,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
 import { SearchFilterPipe } from 'app/search.filter.pipe';
+import { PharmacyDetailsComponent } from 'app/pharmacy-details/pharmacy-details.component';
 
 
 
@@ -46,6 +47,7 @@ import { SearchFilterPipe } from 'app/search.filter.pipe';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    PharmacyDetailsComponent,
   ]
 })
 

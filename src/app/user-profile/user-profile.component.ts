@@ -8,10 +8,6 @@ import { UserService } from 'app/user.service';
 })
 export class UserProfileComponent {
 
-  // onSubmit(f: NgForm) {
-  //   console.log(f.value);  // { first: '', last: '' }
-  //   console.log(f.valid);  // false
-  // }
   fname: string = '';
   lname: string = '';
   mobileNo: number = 0;
@@ -24,13 +20,6 @@ export class UserProfileComponent {
   register() {
     this.userService.register(this.fname, this.lname, this.mobileNo, this.remail, this.rpassword, this.cpassword);
   }
-
-
-//   onSubmit(registerUser: NgForm) {
-//     console.log(registerUser.value);  // { first: '', last: '' }
-//     console.log(registerUser.valid);  // false
-
-// }
 
 }
 

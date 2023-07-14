@@ -4,6 +4,7 @@ import { environment } from "environments/environment";
 import { Observable } from "rxjs";
 import { MedicineData } from "./medicine";
 import { PharmacyData } from "./pharmacy";
+import { LocationData } from "./location";
 
 @Injectable({providedIn: 'root'})
 

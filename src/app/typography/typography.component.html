@@ -7,9 +7,9 @@
         </div>
         <div class="card-body">
           <div class="navbar-form">
-            <form class="medicine-search" >
+            <form class="medicine-search" #addForm="ngForm" (ngSubmit)="saveSearchData(addForm)">
              <div>
-               <input type="text" name="search" [(ngModel)]="searchText" value="" placeholder="Search Medicine">
+               <input type="text" name="searchName" [(ngModel)]="searchName" placeholder="Search Medicine">
                <button mat-raised-button type="submit">
                    <i class="material-icons">search</i>
                 </button>
@@ -19,7 +19,6 @@
               <table class="table">
                  <thead class="text-primary">
                     <tr>
-                       <th style="color: black;">Id</th>
                        <th style="color: black;">Name</th>
                        <th style="text-align: center;color: black;">Description</th>
                        <th style="color: black;">Price (Rs.)</th>
@@ -30,8 +29,7 @@
                     </tr>
                  </thead>
                  <tbody>
-                    <tr *ngFor="let item of dataSource.data | searchFilter:searchText">
-                       <td>{{item.medicineId}}</td>
+                    <tr *ngFor="let item of dataSource.data | searchFilter:searchName">
                        <td>{{item.medicineName}}</td>
                        <td>{{item.medicineDescription}}</td>
                        <td>{{item.medicinePrice}}</td>

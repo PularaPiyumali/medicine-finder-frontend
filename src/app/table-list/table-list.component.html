@@ -85,7 +85,6 @@
                     <table class="table">
                        <thead class="text-primary">
                           <tr>
-                             <th style="color: black;">Id</th>
                              <th style="color: black;">Name</th>
                              <th style="text-align: center;color: black;">Description</th>
                              <th style="color: black;">Price (Rs.)</th>
@@ -97,8 +96,7 @@
                        </thead>
                        <tbody>
                           <tr *ngFor="let item of dataSource.data">
-                             <td>{{item.medicineId}}</td>
-                             <td>
+                           <td>
                                 <div *ngIf="item.isEdit">
                                    <input matInput name="medicine_name" [(ngModel)]="item.medicineName" class="form-control"/>
                                 </div>

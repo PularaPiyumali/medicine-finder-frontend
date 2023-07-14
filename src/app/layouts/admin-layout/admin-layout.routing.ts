@@ -8,6 +8,7 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { PharmacyDetailsComponent } from 'app/pharmacy-details/pharmacy-details.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -60,4 +61,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'add-pharmacy',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'settings',        component: UpgradeComponent },
+    { path: 'top-products', component: PharmacyDetailsComponent,}
 ];

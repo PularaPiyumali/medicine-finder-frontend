@@ -10,13 +10,4 @@
     
   }
 
-  export interface MedicineUpdateData {
-    
-    medicineId: number;
-    medicineName: string;
-    medicineDescription: string;
-    medicinePrice: number;
-    medicineQuantity: number;
-    genericName: string;
-    
-  }
+  
