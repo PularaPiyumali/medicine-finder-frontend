@@ -1,8 +1,12 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { EventEmitter, Output } from '@angular/core';
+import { LocationData } from 'app/location';
+import { LocationService } from 'app/location.service';
 
 declare const google: any;
 declare const L: any;
+const ELEMENT_DATA: LocationData[] = [];
 
 interface Marker {
   lat: number;
@@ -24,20 +28,18 @@ export class MapsComponent implements OnInit {
 
   public latitude: number;
   public longitude: number;
-
+  public location = ELEMENT_DATA;
 
   
 
-  markers: Marker[] = [
-    { lat: 6.9271, lng: 79.8612, label: 'Marker 1' },
-    { lat: 6.9128, lng: 79.8507, label: 'Marker 2' },
-    { lat: 6.9044, lng: 79.8540, label: 'Marker 3' },
-  
-  ];
+  markers: LocationData[] = [];
 
-  constructor() { }
+  constructor (private locationService : LocationService) { 
+    this.onMapClick = this.onMapClick.bind(this);
+  }
 
   ngOnInit() {
+    this.getLocation();
     if (!navigator.geolocation) {
       console.log('location is not supported');
     }
@@ -52,21 +54,22 @@ export class MapsComponent implements OnInit {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(mymap);
-    let marker1 = L.marker([6.9271, 79.8612]).addTo(mymap);
-    let marker2 = L.marker([6.9128, 79.8507]).addTo(mymap); 
-    let marker3 = L.marker([6.9044, 79.8540]).addTo(mymap);
-    let marker4 = L.marker(latLong).addTo(mymap);
+    // let marker1 = L.marker([6.9271, 79.8612]).addTo(mymap);
+    // let marker2 = L.marker([6.9128, 79.8507]).addTo(mymap); 
+    // let marker3 = L.marker([6.9044, 79.8540]).addTo(mymap);
+    //let marker4 = L.marker(latLong).addTo(mymap);
+
+    this.markers.forEach((location) => {
+      //const marker = L.marker([location.latitude, location.longitude]).addTo(mymap);
+      console.log("Hi");
+    });
 
     let popup = L.popup();
+    mymap.on('click', this.onMapClick);
 
-function onMapClick(e: { latlng: { toString: () => string; }; }) {
-  
-        console.log(e.latlng);
-}
-
-mymap.on('click', onMapClick);
     });
     this.watchPosition();
+   
     // //Load the Google Maps API script dynamically
     // const script = document.createElement('script');
     // script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMOtsIXLfoUFU6ZqmeD1_2wmSV0dJNeA';
@@ -78,6 +81,34 @@ mymap.on('click', onMapClick);
     // script.onload = () => {
     //   this.initializeMap();
     // };
+  }
+
+  onMapClick(e: { latlng: { lat: number; lng: number } }) {
+    const locationData: LocationData = {
+      latitude: e.latlng.lat,
+      longitude: e.latlng.lng
+    };
+    this.locationService.addLocation(locationData).subscribe(
+      (response: LocationData) => {
+        console.log('Location added:', response);
+        this.getLocation();
+      },
+      (error: any) => {
+        console.error('Error adding location:', error);
+      }
+    );
+  }
+
+  public getLocation(): void {
+    this.locationService.getLocation().subscribe(
+      (response: LocationData[]) => {
+        this.markers = response;
+        console.log(response);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 
   watchPosition() {
@@ -133,8 +164,8 @@ mymap.on('click', onMapClick);
 
     this.markers.forEach(markerData => {
       const marker = new google.maps.Marker({
-        position: { lat: markerData.lat, lng: markerData.lng },
-        title: markerData.label
+        //position: { lat: markerData.lat, lng: markerData.lng },
+       /// title: markerData.label
       });
 
       marker.setMap(map);

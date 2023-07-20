@@ -158,16 +158,10 @@
                                 <div *ngIf="item.isEdit">
                                    <button
                                       mat-raised-button
-                                      class="button-edit" (click)="editRow(item)">
+                                      class="button-edit" (click)="editRow(item)" (click)="item.isEdit = false">
                                    Save
                                    </button>
-                                   <br>
-                                   <button
-                                      mat-raised-button
-                                      class="button-done" (click)="item.isEdit = false">
-                                   Done
-                                   </button>
-                                </div>
+                                 </div>
                              </td>
                           </tr>
                        </tbody>
