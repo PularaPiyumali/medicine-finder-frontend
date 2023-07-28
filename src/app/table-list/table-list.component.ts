@@ -73,20 +73,6 @@ export class TableListComponent implements OnInit {
 
   
 
-  onAddPharmacy(addForm: NgForm): void {
-    this.medicineService.addPharmacy(addForm.value).subscribe(
-      (response: PharmacyData) => {
-        console.log(response);
-        addForm.resetForm();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-        addForm.resetForm();
-      }
-    );
-  }
-  
-
   toggleAddForm() {
     this.isAdding = !this.isAdding;
   }

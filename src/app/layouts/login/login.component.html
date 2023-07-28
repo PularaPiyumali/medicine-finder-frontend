@@ -8,13 +8,14 @@
                  <p class="card-category">Login to your account from here</p>
               </div>
               <div class="card-body">
-                 <form >
+                 <form id="registerForm" (submit)="onSubmit()">
                     <div class="row">
                        <div class="col-md-11">
                           <mat-form-field class="example-full-width">
                              <input matInput name="email" type="email" placeholder="Email"  [(ngModel)]="email" >
                              <mat-icon matSuffix>email</mat-icon>
                           </mat-form-field>
+                          <p id="emailError" style="color: red; display: none;">Please enter your email.</p>
                        </div>
                     </div>
                     <div class="row">
@@ -23,18 +24,17 @@
                              <input matInput  name="password"  type="password" placeholder="Password"  [(ngModel)]="password">
                              <mat-icon matSuffix>vpn_key</mat-icon>
                           </mat-form-field>
-                       </div>
-                       <!-- <div class="col-md-6">
-                          <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Last Name" type="text">
-                          </mat-form-field>
-                          </div> -->
-                    </div>
+                          <p id="passwordError" style="color: red; display: none;">Please enter your password.</p>
+                        </div>
+                     </div>
                     <button class="forgot-password">
                     Forgot password?
                     </button>
+                    <br>
                     <button mat-raised-button class="btn btn-danger pull-right" (click)="login()">Login</button>
-                    <button mat-raised-button class="btn btn-danger pull-right" (click)="now()" >Register Now</button>
+                    <br>
+                    <p class="account">Don't have an account? <button class="register-now"  (click)="now()"><b>Register Now</b></button></p>
+                    <!-- <button mat-raised-button class="btn btn-danger pull-right" (click)="now()" >Register Now</button> -->
                     <div class="clearfix"></div>
                  </form>
               </div>

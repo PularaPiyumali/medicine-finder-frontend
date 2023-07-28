@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { LocationData } from 'app/location';
 import { LocationService } from 'app/location.service';
 
@@ -34,7 +35,7 @@ export class MapsComponent implements OnInit {
 
   markers: LocationData[] = [];
 
-  constructor (private locationService : LocationService) { 
+  constructor (private locationService : LocationService,private router: Router) { 
     this.onMapClick = this.onMapClick.bind(this);
   }
 
@@ -70,17 +71,6 @@ export class MapsComponent implements OnInit {
     });
     this.watchPosition();
    
-    // //Load the Google Maps API script dynamically
-    // const script = document.createElement('script');
-    // script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMOtsIXLfoUFU6ZqmeD1_2wmSV0dJNeA';
-    // script.async = true;
-    // script.defer = true;
-    // document.head.appendChild(script);
-
-    // //Initialize the map when the API is loaded
-    // script.onload = () => {
-    //   this.initializeMap();
-    // };
   }
 
   onMapClick(e: { latlng: { lat: number; lng: number } }) {
@@ -154,8 +144,6 @@ export class MapsComponent implements OnInit {
     };
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-    //Inside your map component
-    //Inside your map component
   map.addListener('click', (event) => {
   this.latitude = event.latLng.lat();
   this.longitude = event.latLng.lng();
@@ -173,11 +161,14 @@ export class MapsComponent implements OnInit {
 
   }
 
-  //Inside your parent component's class
   onLocationSelected(location: { latitude: number, longitude: number }) {
-  //Handle the latitude and longitude values here
   console.log('Latitude:', location.latitude);
   console.log('Longitude:', location.longitude);
-  //You can also save the values to the database or perform any other necessary actions
+  
+}
+
+done ()
+{
+  this.router.navigate(['/verify-email']);
 }
 }

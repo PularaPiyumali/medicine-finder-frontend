@@ -58,8 +58,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'medicine-counter',     component: TableListComponent },
     { path: 'medicine-finder',     component: TypographyComponent },
     { path: 'find-pharmacy',          component: IconsComponent },
-    { path: 'add-pharmacy',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
+    //{ path: 'pharmacy-registration',  component: NotificationsComponent },
     { path: 'settings',        component: UpgradeComponent },
     { path: 'top-products', component: PharmacyDetailsComponent,}
 ];

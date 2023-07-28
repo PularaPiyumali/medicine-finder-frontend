@@ -5,61 +5,69 @@
            <div class="card">
               <div class="card-header card-header-danger">
                  <h4 class="card-title">Register</h4>
-                 <p class="card-category">Create your account</p>
+                 <p class="card-category">Create an account and start finding medicines you need conveniently</p>
               </div>
-              <div class="card-body">
-                 <div >
-                    <div class="row">
-                       <div class="col-md-11">
-                          <mat-form-field class="example-full-width">
-                             <input matInput name="fname" placeholder="First Name"  [(ngModel)]="fname" >
-                             <mat-icon matSuffix>edit</mat-icon>
-                          </mat-form-field>
-                       </div>
-                    </div>
-                    <div class="row">
-                       <div class="col-md-11">
-                          <mat-form-field class="example-full-width">
-                             <input matInput  name="lname" placeholder="Last Name"  [(ngModel)]="lname" >
-                             <mat-icon matSuffix>edit</mat-icon>
-                          </mat-form-field>
-                       </div>
-                    </div>
-                    <div class="row">
-                       <div class="col-md-11">
-                          <mat-form-field class="example-full-width">
-                             <input matInput  name="mobileNo" type="tel" placeholder="Mobile No"  [(ngModel)]="mobileNo">
-                             <mat-icon matSuffix>contact_phone</mat-icon>
-                          </mat-form-field>
-                       </div>
-                    </div>
-                    <div class="row">
-                       <div class="col-md-11">
-                          <mat-form-field class="example-full-width">
-                             <input matInput  name="remail" type="email" placeholder="Email"  [(ngModel)]="remail" >
-                             <mat-icon matSuffix>email</mat-icon>
-                          </mat-form-field>
-                       </div>
-                    </div>
-                    <div class="row">
-                       <div class="col-md-11">
-                          <mat-form-field class="example-full-width">
-                             <input matInput  name="rpassword" placeholder="Password"  [(ngModel)]="rpassword" type="password">
-                             <mat-icon matSuffix>vpn_key</mat-icon>
-                          </mat-form-field>
-                       </div>
-                    </div>
-                    <div class="row">
-                       <div class="col-md-11">
-                          <mat-form-field class="example-full-width">
-                             <input matInput  name="cpassword" placeholder="Confirm Password"  [(ngModel)]="cpassword" type="password">
-                             <mat-icon matSuffix>vpn_key</mat-icon>
-                          </mat-form-field>
-                       </div>
-                    </div>
-                    <button mat-raised-button class="btn btn-danger pull-right" (click)="register()">Register</button>
-                    <div class="clearfix"></div>
-                 </div>
+              <div class="card-body" >
+                 <form (submit)="onSubmit()">
+                  <div >
+                     <div class="row">
+                        <div class="col-md-11">
+                           <mat-form-field class="example-full-width">
+                              <input matInput name="fname" placeholder="First Name"  [(ngModel)]="fname" >
+                              <mat-icon matSuffix>edit</mat-icon>
+                           </mat-form-field>
+                           <p id="fnameError" style="color: red; display: none;">Please enter your first name.</p>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-11">
+                           <mat-form-field class="example-full-width">
+                              <input matInput  name="lname" placeholder="Last Name"  [(ngModel)]="lname" >
+                              <mat-icon matSuffix>edit</mat-icon>
+                           </mat-form-field>
+                           <p id="lnameError" style="color: red; display: none;">Please enter your last name.</p>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-11">
+                           <mat-form-field class="example-full-width">
+                              <input matInput  name="mobileNo" type="tel" placeholder="Mobile No"  [(ngModel)]="mobileNo">
+                              <mat-icon matSuffix>contact_phone</mat-icon>
+                           </mat-form-field>
+                           <p id="contactNoError" style="color: red; display: none;">Please enter your contact number.</p>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-11">
+                           <mat-form-field class="example-full-width">
+                              <input matInput  name="remail" type="email" placeholder="Email"  [(ngModel)]="remail" >
+                              <mat-icon matSuffix>email</mat-icon>
+                           </mat-form-field>
+                           <p id="emailError" style="color: red; display: none;">Please enter your email.</p>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-11">
+                           <mat-form-field class="example-full-width">
+                              <input matInput  name="rpassword" placeholder="Password"  [(ngModel)]="rpassword" type="password">
+                              <mat-icon matSuffix>vpn_key</mat-icon>
+                           </mat-form-field>
+                           <p id="passwordError" style="color: red; display: none;">Please enter your password.</p>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-11">
+                           <mat-form-field class="example-full-width">
+                              <input matInput  name="cpassword" placeholder="Confirm Password"  [(ngModel)]="cpassword" type="password">
+                              <mat-icon matSuffix>vpn_key</mat-icon>
+                           </mat-form-field>
+                           <p id="confirmPasswordError" style="color: red; display: none;">Please enter confirm password.</p>
+                        </div>
+                     </div>
+                     <button mat-raised-button class="btn btn-danger pull-right" (click)="register()">Register</button>
+                     <div class="clearfix"></div>
+                  </div>
+                 </form>
               </div>
            </div>
         </div>

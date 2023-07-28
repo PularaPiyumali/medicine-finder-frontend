@@ -32,8 +32,6 @@ export class IconsComponent implements OnInit {
   public longitude: number;
   public location = ELEMENT_DATA;
 
-  
-
   markers: LocationData[] = [];
 
   constructor (private locationService : LocationService) { 
@@ -56,32 +54,15 @@ export class IconsComponent implements OnInit {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(mymap);
-    // let marker1 = L.marker([6.9271, 79.8612]).addTo(mymap);
-    // let marker2 = L.marker([6.9128, 79.8507]).addTo(mymap); 
-    // let marker3 = L.marker([6.9044, 79.8540]).addTo(mymap);
-    //let marker4 = L.marker(latLong).addTo(mymap);
-
     this.markers.forEach((location) => {
       const marker = L.marker([location.latitude, location.longitude]).addTo(mymap);
       
     });
 
-    let popup = L.popup();
-    //mymap.on('click', this.onMapClick); 
+    
 
     });
     this.watchPosition();
-    // //Load the Google Maps API script dynamically
-    // const script = document.createElement('script');
-    // script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMOtsIXLfoUFU6ZqmeD1_2wmSV0dJNeA';
-    // script.async = true;
-    // script.defer = true;
-    // document.head.appendChild(script);
-
-    // //Initialize the map when the API is loaded
-    // script.onload = () => {
-    //   this.initializeMap();
-    // };
   }
 
   onMapClick(e: { latlng: { lat: number; lng: number } }) {
@@ -135,7 +116,6 @@ export class IconsComponent implements OnInit {
   }
 
   initializeMap() {
-    //var myLatlng = new google.maps.LatLng(6.9271, 79.8612);
     var mapOptions = {
       zoom: 13,
       center: { lat: 6.9271, lng: 79.8612 },
@@ -154,8 +134,6 @@ export class IconsComponent implements OnInit {
     };
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-    //Inside your map component
-    //Inside your map component
   map.addListener('click', (event) => {
   this.latitude = event.latLng.lat();
   this.longitude = event.latLng.lng();
@@ -164,21 +142,15 @@ export class IconsComponent implements OnInit {
 
     this.markers.forEach(markerData => {
       const marker = new google.maps.Marker({
-        //position: { lat: markerData.lat, lng: markerData.lng },
-       /// title: markerData.label
       });
-
-      marker.setMap(map);
+       marker.setMap(map);
     });
 
   }
 
-  //Inside your parent component's class
   onLocationSelected(location: { latitude: number, longitude: number }) {
-  //Handle the latitude and longitude values here
   console.log('Latitude:', location.latitude);
   console.log('Longitude:', location.longitude);
-  //You can also save the values to the database or perform any other necessary actions
 }
 
 }

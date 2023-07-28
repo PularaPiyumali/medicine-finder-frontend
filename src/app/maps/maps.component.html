@@ -1,1 +1,21 @@
-<div id="map" (locationSelected)="onLocationSelected($event)"></div>
+<div class="map">
+    <div class="location">
+        <div class="container-fluid">
+               <div class="row">
+                  <div class="col-md-8 unset-width">
+                     <div class="card">
+                        <div class="card-header card-header-danger">
+                           <h4 class="card-title">Add Location</h4>
+                           <p class="card-category">Add pharmacy location here</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+    </div>
+    <div id="map" (locationSelected)="onLocationSelected($event)"></div>
+    <div class="button">
+        <button mat-raised-button class="btn btn-danger pull-right" (click)="done()">Done</button>
+    </div>
+</div>
+

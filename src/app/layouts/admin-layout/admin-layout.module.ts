@@ -23,6 +23,7 @@ import { PharmacyDetailsComponent } from 'app/pharmacy-details/pharmacy-details.
 
 
 
+
 @NgModule({
   imports: [
     CommonModule,

@@ -21,8 +21,83 @@ export class RegisterComponent {
   
   register() {
     this.userService.register(this.fname, this.lname, this.mobileNo, this.remail, this.rpassword, this.cpassword);
-    this.router.navigate(['/login']); 
   }
+
+  onSubmit() {
+  
+    const email = this.remail;
+    const password = this.rpassword;
+    const fname = this.fname;
+    const lname = this.lname;
+    const mobileNo = this.mobileNo;
+    const cpassword = this.cpassword;
+  
+    const emailError = document.getElementById('emailError');
+    const passwordError = document.getElementById('passwordError');
+    const fnameError = document.getElementById('fnameError');
+    const lnameError = document.getElementById('lnameError');
+    const contactNoError = document.getElementById('contactNoError');
+    const confirmPasswordError = document.getElementById('confirmPasswordError');
+  
+    let isValid = true;
+
+    if (!fname) {
+      fnameError.style.display = 'block';
+      isValid = false;
+    } else {
+      fnameError.style.display = 'none';
+    }
+
+    if (!lname) {
+      lnameError.style.display = 'block';
+      isValid = false;
+    } else {
+      lnameError.style.display = 'none';
+    }
+
+    if (!mobileNo) {
+      contactNoError.style.display = 'block';
+      isValid = false;
+    } else {
+      contactNoError.style.display = 'none';
+    }
+  
+    if (!email) {
+      emailError.style.display = 'block';
+      isValid = false;
+    } else {
+      emailError.style.display = 'none';
+    }
+  
+    if (!password) {
+      passwordError.style.display = 'block';
+      isValid = false;
+    } else {
+      passwordError.style.display = 'none';
+    }
+
+    if (!cpassword) {
+      confirmPasswordError.style.display = 'block';
+      isValid = false;
+    } else {
+      confirmPasswordError.style.display = 'none';
+    }
+
+    if (password !== cpassword) {
+      confirmPasswordError.textContent = 'Passwords do not match.';
+      confirmPasswordError.style.display = 'block';
+      isValid = false;
+    } else {
+      confirmPasswordError.style.display = 'none';
+    }
+
+    if (isValid) {
+      
+      const formElement = document.getElementById('registerForm') as HTMLFormElement;
+      formElement.submit();
+    }
+  }
+  
 }
 
 export interface LoginData {

@@ -4,19 +4,33 @@ import { Router } from "@angular/router";
 import { LoginData } from "./layouts/register/register.component";
 import { JwtResponse, UserData } from "./layouts/login/login.component";
 import { map } from "rxjs";
+import { environment } from "environments/environment";
 
 
 @Injectable({providedIn: 'root'})
 
 export class UserService {
+
+    private apiServerUrl = environment.apiBaseUrl;
+    
     constructor(private http: HttpClient,private router: Router){}
     
     register(firstName: string, lastName: string, mobileNo: number, email: string, password: string, confirmPassword: string){ 
         const loginData: LoginData = {firstName : firstName , lastName, mobileNo, email, password, confirmPassword}  
-        console.log(loginData);
-        this.http.post("http://localhost:8080/api/v1/registration",loginData)
-        .subscribe(response =>{  
-            console.log(response) 
+        //console.log(loginData);
+        this.http.post<JwtResponse>("http://localhost:8080/api/v1/registration",loginData)
+        .subscribe((response: JwtResponse) =>{  
+            const token = response.token;
+            const role = response.role;
+            console.log(token);
+            console.log(role);
+            if (role === 'CUSTOMER') {
+              this.router.navigate(['/verify-email']);
+            } else if (role === 'ADMIN') {
+              this.router.navigate(['admin/pharmacy-registration']);
+            } else {
+              console.log("Not Found");
+            }
         });
     }  
 

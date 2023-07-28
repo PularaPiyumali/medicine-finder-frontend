@@ -20,6 +20,8 @@ import { PharmacyDetailsComponent } from './pharmacy-details/pharmacy-details.co
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { BasicAuthHtppInterceptorService } from './basic.auth.htpp.interceptor.service';
 import { LocationStrategy, HashLocationStrategy, PathLocationStrategy } from '@angular/common';
+import { PharmacyRegistrationComponent } from './pharmacy-registration/pharmacy-registration.component';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
 
 
 @NgModule({
@@ -45,6 +47,8 @@ import { LocationStrategy, HashLocationStrategy, PathLocationStrategy } from '@a
     RegisterComponent,
     CustomerLayoutComponent,
     SidebarCustomerComponent,
+    PharmacyRegistrationComponent,
+    VerifyEmailComponent,
     
     
   ],

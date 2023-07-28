@@ -1,0 +1,32 @@
+<div class="main-content">
+    <div class="container-fluid">
+       <div class="row">
+        <div class="simple-text">
+            <div class="logo-img">
+                <img src="/assets/img/angular2-logo-red.png"/>
+            </div>
+            Medifinder
+    </div>
+          <div class="col-md-8 unset-width">
+             <div class="card">
+                <div class="card-header card-header-danger">
+                   <h4 class="card-title">Registration Completed!</h4>
+                </div>
+                <div class="card-body">
+                    <form #addForm="ngForm">
+                       <div class="row">
+                          <div class="col-md-12">
+                             <p class="content"><b>Please verify your email address to complete the registration.</b></p>
+                             <p class="thank-u"><b>Thank You!</b></p>
+                          </div>
+                       </div>
+                       <button mat-raised-button class="btn btn-danger pull-right" (click)="verify()">Click here to login</button>
+                    </form>
+                    <div class="clearfix"></div>
+                 </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ 
