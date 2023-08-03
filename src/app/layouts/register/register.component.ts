@@ -23,6 +23,28 @@ export class RegisterComponent {
     this.userService.register(this.fname, this.lname, this.mobileNo, this.remail, this.rpassword, this.cpassword);
   }
 
+  validateEmail(email: string) {
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  
+  }
+
+  validateContactNumber(contactNumber) {
+
+    const contactNumberRegex = /^\d{10}$/; 
+    return contactNumberRegex.test(contactNumber);
+
+  }
+
+  hideErrorMessage(errorElement) {
+    errorElement.style.display = 'none';
+  }
+  
+  showErrorMessage(errorElement) {
+    errorElement.style.display = 'block';
+  }
+
   onSubmit() {
   
     const email = this.remail;
@@ -38,64 +60,90 @@ export class RegisterComponent {
     const lnameError = document.getElementById('lnameError');
     const contactNoError = document.getElementById('contactNoError');
     const confirmPasswordError = document.getElementById('confirmPasswordError');
+    const invalidEmailError = document.getElementById('invalidEmailError');
+    const invalidContactError = document.getElementById('invalidContactError');
   
     let isValid = true;
 
     if (!fname) {
-      fnameError.style.display = 'block';
+      this.showErrorMessage(fnameError);
       isValid = false;
     } else {
-      fnameError.style.display = 'none';
+      this.hideErrorMessage(fnameError);
     }
 
     if (!lname) {
-      lnameError.style.display = 'block';
+      this.showErrorMessage(lnameError);
       isValid = false;
     } else {
-      lnameError.style.display = 'none';
+      this.hideErrorMessage(lnameError);
     }
 
     if (!mobileNo) {
-      contactNoError.style.display = 'block';
+      this.showErrorMessage(contactNoError);
+      this.hideErrorMessage(invalidContactError);
       isValid = false;
     } else {
-      contactNoError.style.display = 'none';
+      this.hideErrorMessage(contactNoError);
+    }
+
+    if (!this.validateContactNumber(mobileNo)) {
+      this.showErrorMessage(invalidContactError);
+      this.hideErrorMessage(contactNoError);
+      isValid = false;
+    } else {
+      this.hideErrorMessage(invalidContactError);
     }
   
     if (!email) {
-      emailError.style.display = 'block';
+      this.showErrorMessage(emailError);
+      this.hideErrorMessage(invalidEmailError);
       isValid = false;
     } else {
-      emailError.style.display = 'none';
+      this.hideErrorMessage(emailError);
+    }
+
+     if (!this.validateEmail(email)) {
+      this.showErrorMessage(invalidEmailError);
+      this.hideErrorMessage(emailError);
+      isValid = false;  
+    }  else {
+      this.hideErrorMessage(invalidEmailError);
     }
   
     if (!password) {
-      passwordError.style.display = 'block';
+      this.showErrorMessage(passwordError);
       isValid = false;
     } else {
-      passwordError.style.display = 'none';
+      this.hideErrorMessage(passwordError);
     }
 
     if (!cpassword) {
-      confirmPasswordError.style.display = 'block';
+      this.showErrorMessage(confirmPasswordError);
+      isValid = false;
+    } else if (password !== cpassword) {
+      confirmPasswordError.textContent = 'Passwords do not match.';
+      this.showErrorMessage(confirmPasswordError);
       isValid = false;
     } else {
-      confirmPasswordError.style.display = 'none';
+      this.hideErrorMessage(confirmPasswordError);
     }
 
-    if (password !== cpassword) {
-      confirmPasswordError.textContent = 'Passwords do not match.';
-      confirmPasswordError.style.display = 'block';
-      isValid = false;
-    } else {
-      confirmPasswordError.style.display = 'none';
-    }
+    
 
     if (isValid) {
-      
-      const formElement = document.getElementById('registerForm') as HTMLFormElement;
-      formElement.submit();
+    
+      this.register();
     }
+
+    document.getElementById('fname').addEventListener('input', () => this.hideErrorMessage(fnameError));
+    document.getElementById('lname').addEventListener('input', () => this.hideErrorMessage(lnameError));
+    document.getElementById('email').addEventListener('input', () => this.hideErrorMessage(emailError));
+    document.getElementById('email').addEventListener('input', () => this.hideErrorMessage(invalidEmailError));
+    document.getElementById('mobileNo').addEventListener('input', () => this.hideErrorMessage(contactNoError));
+    document.getElementById('mobileNo').addEventListener('input', () => this.hideErrorMessage(invalidContactError));
+    document.getElementById('password').addEventListener('input', () => this.hideErrorMessage(passwordError));
+    document.getElementById('confirmPassword').addEventListener('input', () => this.hideErrorMessage(confirmPasswordError));
   }
   
 }

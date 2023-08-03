@@ -23,6 +23,21 @@ login() {
   this.userService.login(this.email, this.password);
 } 
 
+validateEmail(email: string) {
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+
+}
+
+hideErrorMessage(errorElement) {
+  errorElement.style.display = 'none';
+}
+
+showErrorMessage(errorElement) {
+  errorElement.style.display = 'block';
+}
+
 onSubmit() {
   
   const email = this.email;
@@ -30,29 +45,41 @@ onSubmit() {
 
   const emailError = document.getElementById('emailError');
   const passwordError = document.getElementById('passwordError');
+  const invalidEmailError = document.getElementById('invalidEmailError');
 
   let isValid = true;
 
   if (!email) {
-    emailError.style.display = 'block';
+    this.showErrorMessage(emailError);
+    this.hideErrorMessage(invalidEmailError);
     isValid = false;
-  } else {
-    emailError.style.display = 'none';
+  } else if (!this.validateEmail(email)) {
+    this.showErrorMessage(invalidEmailError);
+    this.hideErrorMessage(emailError);
+    isValid = false;  } 
+  else {
+    this.hideErrorMessage(emailError);
+    this.hideErrorMessage(invalidEmailError);
   }
 
   if (!password) {
-    passwordError.style.display = 'block';
+    this.showErrorMessage(passwordError);
     isValid = false;
   } else {
-    passwordError.style.display = 'none';
+    this.hideErrorMessage(passwordError);
   }
 
   if (isValid) {
-    // Submit the form if all fields are filled
     const formElement = document.getElementById('loginForm') as HTMLFormElement;
     formElement.submit();
   }
+
+document.getElementById('email').addEventListener('input', () => this.hideErrorMessage(emailError));
+document.getElementById('email').addEventListener('input', () => this.hideErrorMessage(invalidEmailError));
+document.getElementById('password').addEventListener('input', () => this.hideErrorMessage(passwordError));
 }
+
+
 
 }
 

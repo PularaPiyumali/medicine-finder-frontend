@@ -12,16 +12,17 @@
                     <div class="row">
                        <div class="col-md-11">
                           <mat-form-field class="example-full-width">
-                             <input matInput name="email" type="email" placeholder="Email"  [(ngModel)]="email" >
+                             <input matInput name="email" id="email" type="email" placeholder="Email"  [(ngModel)]="email" >
                              <mat-icon matSuffix>email</mat-icon>
                           </mat-form-field>
                           <p id="emailError" style="color: red; display: none;">Please enter your email.</p>
+                          <p id="invalidEmailError" style="color: red; display: none;">Please enter a correct email address.</p>
                        </div>
                     </div>
                     <div class="row">
                        <div class="col-md-11">
                           <mat-form-field class="example-full-width">
-                             <input matInput  name="password"  type="password" placeholder="Password"  [(ngModel)]="password">
+                             <input matInput  name="password" id="password" type="password" placeholder="Password"  [(ngModel)]="password">
                              <mat-icon matSuffix>vpn_key</mat-icon>
                           </mat-form-field>
                           <p id="passwordError" style="color: red; display: none;">Please enter your password.</p>
